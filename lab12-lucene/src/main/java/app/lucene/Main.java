@@ -28,6 +28,13 @@ public class Main {
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
 
         IndexWriter w = new IndexWriter(directory, config);
+//        w.addDocument(buildDoc("Lucene in Action", "9781473671911"));
+//        w.addDocument(buildDoc("Lucene for Dummies", "9780735219090"));
+//        w.addDocument(buildDoc("Managing Gigabytes", "9781982131739"));
+//        w.addDocument(buildDoc("The Art of Computer Science",
+//                "9781250301695"));
+//        w.addDocument(buildDoc("Dummy and yummy title", "9780525656161"));
+
         w.addDocument(buildDoc("Lucyna w akcji", "9780062316097"));
         w.addDocument(buildDoc("Akcje rosną i spadają", "9780385545955"));
         w.addDocument(buildDoc("Bo ponieważ", "9781501168007"));
@@ -37,6 +44,19 @@ public class Main {
         w.addDocument(buildDoc("Urodzić się na nowo", "9780679777489"));
         w.close();
 
+//        String querystr = "dummy";
+//        String querystr = "and";
+//        String querystr = "isbn:9780062316097";
+//        String querystr = "title:urodzić";
+//        String querystr = "title:rodzić";
+//        String querystr = "title:ro*";
+//        String querystr = "title:ponieważ";
+//        String querystr = "title:(Lucyna AND akcja)";
+//        String querystr = "title:(akcja NOT Lucyna)";
+//        String querystr = "title:\"naturalnie morderca\"~2";
+//        String querystr = "title:\"naturalnie morderca\"~1";
+//        String querystr = "title:\"naturalnie morderca\"~0";
+//        String querystr = "naturalne";
         String querystr = "neturalne~";
         Query q = new QueryParser("title", analyzer).parse(querystr);
         int maxHits = 10;
